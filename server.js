@@ -12,10 +12,12 @@ app.prepare()
     const server = new Koa()
     const router = new Router()
 
+    // ! the following code can help the nextjs load to koa
     // ! 下面这一段代码，决定了next项目是否可以挂载到 koa 上面
     server.use(async (ctx, next) => {
         await handle(ctx.req, ctx.res)
         ctx.response = false
+        next();
     })
 
     server.use(router.routes())
