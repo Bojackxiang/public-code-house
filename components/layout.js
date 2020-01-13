@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { Layout, Icon, Input, Avatar } from "antd";
 const { Header, Content, Footer } = Layout;
+import Container from "./container";
 
 const iconStyle = {
   color: "white",
@@ -53,7 +54,9 @@ export default ({ children }) => {
           </div>
         </Header>
 
-        <Content>{children}hello world</Content>
+        <Content>
+          <Container comp="div">{children}hello world</Container>
+        </Content>
 
         <Footer style={footerStyle}>
           developer by Richard
@@ -75,9 +78,9 @@ export default ({ children }) => {
           {`
             #__next {
               height: 100%;
-            };
-            .ant-layout{
-                height: 100%;
+            }
+            .ant-layout {
+              height: 100%;
             }
           `}
         </style>
